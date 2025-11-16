@@ -16,7 +16,7 @@
 # For more information, please refer to:
 # https://docs.habana.ai/en/v1.21.1/PyTorch/vLLM_Inference/vLLM_FP8_Inference.html
 
-from typing import Any, Optional
+from typing import Any
 
 import torch
 

@@ -3,7 +3,7 @@
 """Attention layer with XFormersAttention."""
 
 from dataclasses import dataclass
-from typing import ClassVar, Optional
+from typing import ClassVar
 
 import torch
 

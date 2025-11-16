@@ -3,7 +3,7 @@
 # ruff: noqa
 import json
 from collections.abc import Sequence
-from typing import Any, Optional
+from typing import Any
 
 import regex as re
 

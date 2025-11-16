@@ -3,7 +3,7 @@
 
 import importlib
 from collections.abc import Callable
-from typing import TYPE_CHECKING, Optional, cast
+from typing import TYPE_CHECKING, cast
 
 from vllm.distributed.kv_transfer.kv_connector.base import (
     KVConnectorBase,

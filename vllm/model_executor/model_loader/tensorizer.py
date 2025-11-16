@@ -12,7 +12,7 @@ import threading
 import time
 from collections.abc import Generator, MutableMapping
 from dataclasses import asdict, dataclass, field, fields
-from typing import TYPE_CHECKING, Any, ClassVar, Optional
+from typing import TYPE_CHECKING, Any, ClassVar
 
 import regex as re
 import torch

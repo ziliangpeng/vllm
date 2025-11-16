@@ -3,7 +3,7 @@
 
 from collections.abc import Callable
 from copy import deepcopy
-from typing import Any, Optional
+from typing import Any
 
 import torch
 from safetensors.torch import _TYPES as _SAFETENSORS_TO_TORCH_DTYPE

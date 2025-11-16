@@ -5,7 +5,7 @@ import enum
 import time
 from collections.abc import Callable, Mapping
 from functools import partial
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any
 
 import torch
 

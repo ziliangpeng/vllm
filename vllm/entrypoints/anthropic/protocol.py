@@ -3,7 +3,7 @@
 """Pydantic models for Anthropic API protocol"""
 
 import time
-from typing import Any, Literal, Optional
+from typing import Any, Literal
 
 from pydantic import BaseModel, field_validator
 

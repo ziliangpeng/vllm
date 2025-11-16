@@ -4,7 +4,7 @@ import importlib
 import json
 import types
 from importlib.util import find_spec
-from typing import Any, Optional
+from typing import Any
 
 import regex as re
 import torch

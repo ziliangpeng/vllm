@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 
 from copy import deepcopy
-from typing import Annotated, Any, Optional
+from typing import Annotated, Any
 
 import msgspec
 

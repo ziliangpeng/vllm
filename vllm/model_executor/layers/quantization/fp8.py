@@ -3,7 +3,7 @@
 
 from collections.abc import Callable
 from enum import Enum
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any
 
 import torch
 from torch.nn import Module

@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 
 import fnmatch
-from typing import Any, Optional, cast
+from typing import Any, cast
 
 import torch
 
