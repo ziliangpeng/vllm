@@ -28,7 +28,7 @@ def create_orca_header(
     and their corresponding double values.
 
     Returns:
-    - Optional[Mapping[str,str]]: A dictionary with header key as
+    - Mapping[str,str] | None: A dictionary with header key as
     'endpoint-load-metrics' and values as the ORCA header strings with
     format prefix and data in  with named_metrics in.
     """
@@ -109,7 +109,7 @@ def metrics_header(metrics_format: str) -> Mapping[str, str] | None:
     - metrics_format (str): The format of the header ('TEXT', 'JSON').
 
     Returns:
-    - Optional[Mapping[str,str]]: A dictionary with header key as
+    - Mapping[str,str] | None: A dictionary with header key as
     'endpoint-load-metrics' and values as the ORCA header strings with
     format prefix and data in  with named_metrics in.
     """

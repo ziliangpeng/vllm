@@ -94,7 +94,7 @@ class LogitsProcessor(ABC):
     @abstractmethod
     def update_state(
         self,
-        batch_update: Optional["BatchUpdate"],
+        batch_update: "BatchUpdate" | None,
     ) -> None:
         """Called when there are new output tokens, prior
         to each forward pass.

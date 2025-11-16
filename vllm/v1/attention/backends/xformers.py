@@ -123,14 +123,14 @@ class XFormersAttentionMetadata:
     num_decodes: int = 0
 
     # Biases for different attention types.
-    attn_bias: Optional["AttentionBias"] = None
+    attn_bias: "AttentionBias" | None = None
 
     # Self-attention prefill/decode metadata cache
-    _cached_prefill_metadata: Optional["XFormersAttentionMetadata"] = None
-    _cached_decode_metadata: Optional["XFormersAttentionMetadata"] = None
+    _cached_prefill_metadata: "XFormersAttentionMetadata" | None = None
+    _cached_decode_metadata: "XFormersAttentionMetadata" | None = None
 
     @property
-    def prefill_metadata(self) -> Optional["XFormersAttentionMetadata"]:
+    def prefill_metadata(self) -> "XFormersAttentionMetadata" | None:
         if self.num_prefills == 0:
             return None
 
@@ -155,7 +155,7 @@ class XFormersAttentionMetadata:
         return self._cached_prefill_metadata
 
     @property
-    def decode_metadata(self) -> Optional["XFormersAttentionMetadata"]:
+    def decode_metadata(self) -> "XFormersAttentionMetadata" | None:
         if self.num_decode_tokens == 0:
             return None
 

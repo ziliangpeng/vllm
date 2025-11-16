@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 
 from collections.abc import Callable
-from typing import Any, Union
+from typing import Any
 
 import torch
 from packaging import version
@@ -139,7 +139,7 @@ class BitsAndBytesConfig(QuantizationConfig):
 
     def get_quant_method(
         self, layer: torch.nn.Module, prefix: str
-    ) -> Union["LinearMethodBase", "BitsAndBytesMoEMethod"] | None:
+    ) -> "LinearMethodBase" | "BitsAndBytesMoEMethod" | None:
         if isinstance(layer, LinearBase):
             if is_layer_skipped_bnb(prefix, self.llm_int8_skip_modules):
                 return UnquantizedLinearMethod()

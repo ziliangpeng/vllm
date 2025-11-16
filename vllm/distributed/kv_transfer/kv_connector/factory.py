@@ -44,7 +44,7 @@ class KVConnectorFactory:
         cls,
         config: "VllmConfig",
         role: KVConnectorRole,
-        kv_cache_config: Optional["KVCacheConfig"] = None,
+        kv_cache_config: "KVCacheConfig" | None = None,
     ) -> KVConnectorBase:
         kv_transfer_config = config.kv_transfer_config
         if kv_transfer_config is None:

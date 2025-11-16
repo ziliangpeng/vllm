@@ -84,21 +84,21 @@ def moe_permute(
       for each expert.
     Parameters:
     - hidden_states (torch.Tensor): The input tensor to the MoE layer.
-    - a1q_scale (Optional[torch.Tensor]): quant scale for hidden_states
+    - a1q_scale (torch.Tensor | None): quant scale for hidden_states
     - topk_ids (torch.Tensor): topk expert route id for each token.
     - n_expert (int): The number of expert.
     - n_local_expert (int): The number of expert in current EP rank.
-    - expert_map (Optional[torch.Tensor]):  A tensor mapping expert indices
+    - expert_map (torch.Tensor | None):  A tensor mapping expert indices
         from the global expert space to the local expert space of the expert
         parallel shard.
-    - align_block_size (Optional[int]): align group gemm block size for deepgemm
+    - align_block_size (int | None): align group gemm block size for deepgemm
     - fill_invalid_expert(int): fill expert id in m_indices for invalid expert
       to workaround DeepGemm unsupported -1 in m_indices
-    - permuted_hidden_states (Optional[torch.Tensor]): Optional output tensor.
+    - permuted_hidden_states (torch.Tensor | None): Optional output tensor.
         If None, the output tensor will be created in this function.
     Returns:
     - permuted_hidden_states (torch.Tensor): permuted activation.
-    - a1q_scale (Optional[torch.Tensor]): permuted quant scale for hidden_states
+    - a1q_scale (torch.Tensor | None): permuted quant scale for hidden_states
         if original scale not per-tensor scaling
     - expert_first_token_offset (torch.Tensor): offset of the first token
        of each expert for standard grouped gemm. if enable 'align_block_size'
@@ -203,7 +203,7 @@ def moe_unpermute(
     - permuted_hidden_states (torch.Tensor): permuted activation.
     - topk_weights (torch.Tensor): topk expert route weight for each token.
     - inv_permuted_idx (torch.Tensor): row idx map for moe_unpermute.
-    - expert_first_token_offset (Optional[torch.Tensor]): offset of the first
+    - expert_first_token_offset (torch.Tensor | None): offset of the first
       token of each expert for grouped gemm.
     Returns:
     - hidden_states (torch.Tensor): The reduced and unpermuted activation

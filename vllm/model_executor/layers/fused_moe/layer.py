@@ -121,14 +121,14 @@ def determine_expert_map(
         expert_placement_strategy: The expert placement strategy.
 
     Returns:
-        tuple[int, Optional[torch.Tensor]]: A tuple containing:
+        tuple[int, torch.Tensor | None]: A tuple containing:
             - local_num_experts (int): The number of experts assigned
                 to the current rank.
-            - expert_map (Optional[torch.Tensor]): A tensor of shape
+            - expert_map (torch.Tensor | None): A tensor of shape
                 (global_num_experts,) mapping from global to local index.
                 Contains -1 for experts not assigned to the current rank.
                 Returns None if ep_size is 1.
-            - expert_mask (Optional[torch.Tensor]): A tensor of shape
+            - expert_mask (torch.Tensor | None): A tensor of shape
                 (global_num_experts + num_fused_shared_experts + 1,)
                 containing 1 for experts assigned to the current rank
                 and 0 for sentinel.

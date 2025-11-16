@@ -9,7 +9,7 @@ if TYPE_CHECKING:
     from types import ModuleType
 
 # 1. Create a global variable as a placeholder for the module
-_petit_kernel: Optional["ModuleType"] = None
+_petit_kernel: "ModuleType" | None = None
 
 _PETIT_INSTALL_MSG = (
     "Petit is not installed. Please install it with `pip install petit-kernel`."

@@ -1,7 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 from collections import OrderedDict
-from typing import Optional
 
 import torch
 import torch.nn as nn
@@ -20,7 +19,7 @@ logger = init_logger(__name__)
 
 
 class XlaQKVParallelLinear(nn.Module):
-    def __init__(self, qkv_linear: nn.Module, mesh: Optional["xs.Mesh"] = None):
+    def __init__(self, qkv_linear: nn.Module, mesh: "xs.Mesh" | None = None):
         super().__init__()
         assert isinstance(qkv_linear, QKVParallelLinear)
         self.skip_bias_add = qkv_linear.skip_bias_add

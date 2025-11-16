@@ -5,7 +5,7 @@ import os
 import time
 from collections import defaultdict
 from concurrent.futures import Future
-from typing import TYPE_CHECKING, Union
+from typing import TYPE_CHECKING
 
 import vllm.platforms
 from vllm.config import ParallelConfig
@@ -84,10 +84,7 @@ try:
             self,
             execute_model_input: tuple["SchedulerOutput", "GrammarOutput"]
             | tuple["SchedulerOutput", "GrammarOutput", "IntermediateTensors"],
-        ) -> Union[
-            "ModelRunnerOutput",
-            tuple["SchedulerOutput", "GrammarOutput", "IntermediateTensors"],
-        ]:
+        ) -> "ModelRunnerOutput" | tuple["SchedulerOutput", "GrammarOutput", "IntermediateTensors"]:
             # This method is used by Ray Compiled Graph to execute the model,
             # and it needs a special logic of self.setup_device_if_necessary()
             self.setup_device_if_necessary()

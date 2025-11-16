@@ -1263,7 +1263,7 @@ class Phi4MultimodalForCausalLM(nn.Module, SupportsLoRA, SupportsMultiModal):
             kwargs (object): Keyword arguments.
 
         Returns:
-            Optional[Phi4MMAudioInputs]: Parsed and validated audio inputs.
+            Phi4MMAudioInputs | None: Parsed and validated audio inputs.
         """
         audio_features = kwargs.pop("audio_input_features", None)
         audio_embeds = kwargs.pop("audio_embeds", None)

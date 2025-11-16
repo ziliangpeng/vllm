@@ -39,27 +39,27 @@ else:
 
 _T = TypeVar("_T")
 
-HfImageItem: TypeAlias = Union["Image", np.ndarray, "torch.Tensor"]
+HfImageItem: TypeAlias = "Image" | np.ndarray | "torch.Tensor"
 """
 A `transformers.image_utils.ImageInput` representing a single image
 item, which can be passed to a HuggingFace `ImageProcessor`.
 """
 
-HfVideoItem: TypeAlias = Union[
-    list["Image"], np.ndarray, "torch.Tensor", list[np.ndarray], list["torch.Tensor"]
-]
+HfVideoItem: TypeAlias = (
+    list["Image"] | np.ndarray | "torch.Tensor" | list[np.ndarray] | list["torch.Tensor"]
+)
 """
 A `transformers.image_utils.VideoInput` representing a single video
 item, which can be passed to a HuggingFace `VideoProcessor`.
 """
 
-HfAudioItem: TypeAlias = Union[list[float], np.ndarray, "torch.Tensor"]
+HfAudioItem: TypeAlias = list[float] | np.ndarray | "torch.Tensor"
 """
 Represents a single audio
 item, which can be passed to a HuggingFace `AudioProcessor`.
 """
 
-ImageItem: TypeAlias = Union[HfImageItem, "torch.Tensor"]
+ImageItem: TypeAlias = HfImageItem | "torch.Tensor"
 """
 A `transformers.image_utils.ImageInput` representing a single image
 item, which can be passed to a HuggingFace `ImageProcessor`.
@@ -69,9 +69,7 @@ which are treated as image embeddings;
 these are directly passed to the model without HF processing.
 """
 
-VideoItem: TypeAlias = Union[
-    HfVideoItem, "torch.Tensor", tuple[HfVideoItem, dict[str, Any]]
-]
+VideoItem: TypeAlias = HfVideoItem | "torch.Tensor" | tuple[HfVideoItem, dict[str, Any]]
 """
 A `transformers.video_utils.VideoInput` representing a single video item. 
 This can be passed to a HuggingFace `VideoProcessor` 
@@ -82,7 +80,7 @@ which are treated as video embeddings;
 these are directly passed to the model without HF processing.
 """
 
-AudioItem: TypeAlias = Union[HfAudioItem, tuple[np.ndarray, float], "torch.Tensor"]
+AudioItem: TypeAlias = HfAudioItem | tuple[np.ndarray, float] | "torch.Tensor"
 """
 Represents a single audio
 item, which can be passed to a HuggingFace `AudioProcessor`.
@@ -162,7 +160,7 @@ class PlaceholderRange:
     length: int
     """The length of the placeholder."""
 
-    is_embed: Optional["torch.Tensor"] = None
+    is_embed: "torch.Tensor" | None = None
     """
     A boolean mask of shape `(length,)` indicating which positions
     between `offset` and `offset + length` to assign embeddings to.
@@ -188,12 +186,12 @@ class PlaceholderRange:
         return nested_tensors_equal(self.is_embed, other.is_embed)
 
 
-NestedTensors: TypeAlias = Union[
-    list["NestedTensors"],
-    list["torch.Tensor"],
-    "torch.Tensor",
-    tuple["torch.Tensor", ...],
-]
+NestedTensors: TypeAlias = (
+    list["NestedTensors"]
+    | list["torch.Tensor"]
+    | "torch.Tensor"
+    | tuple["torch.Tensor", ...]
+)
 """
 Uses a list instead of a tensor if the dimensions of each element do not match.
 """
@@ -237,7 +235,7 @@ class MultiModalFeatureSpec:
     MultiModalFeatureSpec per item.
     """
 
-    data: Optional["MultiModalKwargsItem"]
+    data: "MultiModalKwargsItem" | None
     """Multimodal data for this feature"""
 
     modality: str

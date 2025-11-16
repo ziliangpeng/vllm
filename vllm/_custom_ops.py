@@ -1566,7 +1566,7 @@ def allspark_repack_weight(
             if use asymmetric quantization, has_zp = True.
 
     Returns:
-        tuple[torch.Tensor, torch.Tensor, Optional[torch.Tensor]] :
+        tuple[torch.Tensor, torch.Tensor, torch.Tensor | None] :
             rearranged weight, scale, and optionally zero_point.
     """
     K = qweight.shape[0]
@@ -1649,7 +1649,7 @@ def scaled_int8_quant(
         symmetric: Whether to use symmetric quantization (scale only, azp ignored).
 
     Returns:
-      tuple[torch.Tensor, torch.Tensor, Optional[torch.Tensor]] : Output int8 tensor, scales, and optionally azp.
+      tuple[torch.Tensor, torch.Tensor, torch.Tensor | None] : Output int8 tensor, scales, and optionally azp.
     """
     output = torch.empty_like(input, dtype=torch.int8)
     if scale is not None:
@@ -2547,7 +2547,7 @@ def onednn_scaled_int8_quant(
         symmetric: Whether to use symmetric quantization (scale only, azp ignored).
 
     Returns:
-      tuple[torch.Tensor, torch.Tensor, Optional[torch.Tensor]] : Output int8 tensor, scales, and optionally azp.
+      tuple[torch.Tensor, torch.Tensor, torch.Tensor | None] : Output int8 tensor, scales, and optionally azp.
     """
     output = torch.empty_like(input, dtype=torch.int8)
     token_num = input.numel() // input.shape[-1]

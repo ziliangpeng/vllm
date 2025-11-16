@@ -379,13 +379,13 @@ def download_weights_from_hf(
 
     Args:
         model_name_or_path (str): The model name or path.
-        cache_dir (Optional[str]): The cache directory to store the model
+        cache_dir (str | None): The cache directory to store the model
             weights. If None, will use HF defaults.
         allow_patterns (list[str]): The allowed patterns for the
             weight files. Files matched by any of the patterns will be
             downloaded.
-        revision (Optional[str]): The revision of the model.
-        ignore_patterns (Optional[Union[str, list[str]]]): The patterns to
+        revision (str | None): The revision of the model.
+        ignore_patterns (str | list[str] | None): The patterns to
             filter out the weight files. Files matched by any of the patterns
             will be ignored.
 
@@ -456,9 +456,9 @@ def download_safetensors_index_file_from_hf(
     Args:
         model_name_or_path (str): The model name or path.
         index_file (str): The safetensors index file name
-        cache_dir (Optional[str]): The cache directory to store the model
+        cache_dir (str | None): The cache directory to store the model
             weights. If None, will use HF defaults.
-        revision (Optional[str]): The revision of the model.
+        revision (str | None): The revision of the model.
     """
     # Use file lock to prevent multiple processes from
     # downloading the same model weights at the same time.

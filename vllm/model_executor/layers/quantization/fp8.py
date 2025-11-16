@@ -256,7 +256,7 @@ class Fp8Config(QuantizationConfig):
 
     def get_xpu_quant_method(
         self, layer: torch.nn.Module, prefix: str
-    ) -> Optional["QuantizeMethodBase"]:
+    ) -> "QuantizeMethodBase" | None:
         from vllm.attention.layer import Attention
         from vllm.model_executor.layers.quantization.ipex_quant import (
             XPUFp8LinearMethod,
@@ -286,7 +286,7 @@ class Fp8Config(QuantizationConfig):
 
     def get_quant_method(
         self, layer: torch.nn.Module, prefix: str
-    ) -> Optional["QuantizeMethodBase"]:
+    ) -> "QuantizeMethodBase" | None:
         from vllm.attention.layer import Attention  # Avoid circular import
 
         if current_platform.is_xpu():

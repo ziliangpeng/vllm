@@ -316,7 +316,7 @@ class PunicaWrapperBase(PunicaWrapperABC):
             y[i] += (x @ lora_a_stacked[i]) * scale
 
         Args:
-            y (Union[tuple[torch.Tensor, ...], torch.Tensor]): Output tensors
+            y (tuple[torch.Tensor, ...] | torch.Tensor): Output tensors
             x (torch.Tensor): Input tensor
             lora_a_stacked (tuple[torch.Tensor, ...]): lora_a's weights
             scale (float): Scaling factor for the operation
@@ -348,7 +348,7 @@ class PunicaWrapperBase(PunicaWrapperABC):
 
         Args:
             y (torch.Tensor): Output tensor.
-            x (Union[tuple[torch.Tensor, ...], torch.Tensor]): Input tensors
+            x (tuple[torch.Tensor, ...] | torch.Tensor): Input tensors
             lora_b_stacked (tuple[torch.Tensor, ...]): lora_b's weight
             output_slices (tuple[int, ...]): Every slice's size
             offset_start (int): The starting position of y, defaults to 0
@@ -414,7 +414,7 @@ class PunicaWrapperBase(PunicaWrapperABC):
             lora_b_stacked (tuple[torch.Tensor, ...]): lora_b's weight.
             scale (float): Scaling factor.
             output_slices (tuple[int, ...]): Every slice's size.
-            buffer (Optional[tuple[torch.Tensor, ...]]): Defaults to None.
+            buffer (tuple[torch.Tensor, ...] | None): Defaults to None.
         """
         # TODO: implement it based on torch ops
         raise NotImplementedError
@@ -444,7 +444,7 @@ class PunicaWrapperBase(PunicaWrapperABC):
             lora_a_stacked (torch.Tensor): lora_a's weights.
             lora_b_stacked (torch.Tensor):lora_b's weights.
             scale (float): Scaling factor.
-            buffer (Optional[torch.Tensor]):Default to None.
+            buffer (torch.Tensor | None):Default to None.
         """
         # TODO: implement it based on torch ops
         raise NotImplementedError

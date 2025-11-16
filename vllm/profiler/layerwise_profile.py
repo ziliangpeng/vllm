@@ -31,7 +31,7 @@ except ImportError:
 @dataclass
 class _ModuleTreeNode:
     event: _ProfilerEvent
-    parent: Optional["_ModuleTreeNode"] = None
+    parent: "_ModuleTreeNode" | None = None
     children: list["_ModuleTreeNode"] = field(default_factory=list)
     trace: str = ""
 
@@ -368,7 +368,7 @@ class layerwise_profile(profile):
         layerwise profile constructor.
 
         Args:
-            num_running_seqs (Optional[int], optional): When given,
+            num_running_seqs (int | None, optional): When given,
                 num_running_seqs will be passed to LayerProfileResults
                 for metadata update. Defaults to None.
         """

@@ -105,7 +105,7 @@ class BenchmarkDataset(ABC):
         seed.
 
         Args:
-            dataset_path (Optional[str]): Path to the dataset. If None, it
+            dataset_path (str | None): Path to the dataset. If None, it
                 indicates that a default or random dataset might be used.
             random_seed (int): Seed value for reproducible shuffling or
                 sampling. Defaults to DEFAULT_SEED.
@@ -165,9 +165,9 @@ class BenchmarkDataset(ABC):
         selects a LoRA based on max_loras.
 
         Args:
-            max_loras (Optional[int]): The maximum number of LoRAs available.
+            max_loras (int | None): The maximum number of LoRAs available.
                 If `None`, LoRA is not used.
-            lora_path (Optional[str]): Path to the LoRA parameters on disk.
+            lora_path (str | None): Path to the LoRA parameters on disk.
                 If `None`, LoRA is not used.
 
         Returns:

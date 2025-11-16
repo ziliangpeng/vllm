@@ -144,7 +144,7 @@ class Glm4MoeModelReasoningParser(ReasoningParser):
         - 'xyz' goes to content
 
         Returns:
-            tuple[Optional[str], Optional[str]]: reasoning content and content
+            tuple[str | None, str | None]: reasoning content and content
         """
 
         # Check if the model output contains the <think> and </think> tokens.

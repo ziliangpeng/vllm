@@ -5,7 +5,7 @@ import time
 from collections import defaultdict
 from contextlib import contextmanager
 from dataclasses import dataclass
-from typing import TYPE_CHECKING, Any, NamedTuple, Union
+from typing import TYPE_CHECKING, Any, NamedTuple
 
 import torch
 
@@ -192,11 +192,11 @@ class ForwardContext:
     for each microbatch.
     Set dynamically for each forward pass
     """
-    attn_metadata: Union[
-        "AttentionMetadata",
-        dict[str, "AttentionMetadata"],
-        list[dict[str, "AttentionMetadata"]],
-    ]
+    attn_metadata: (
+        "AttentionMetadata"
+        | dict[str, "AttentionMetadata"]
+        | list[dict[str, "AttentionMetadata"]]
+    )
     # TODO: remove after making all virtual_engines share the same kv cache
     virtual_engine: int  # set dynamically for each forward pass
     # set dynamically for each forward pass

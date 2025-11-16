@@ -323,7 +323,7 @@ class TensorizerConfig(MutableMapping):
                 " is unstable and may lead to errors."
             )
 
-    def open_stream(self, tensorizer_args: Optional["TensorizerArgs"] = None):
+    def open_stream(self, tensorizer_args: "TensorizerArgs" | None = None):
         if tensorizer_args is None:
             tensorizer_args = self._construct_tensorizer_args()
 

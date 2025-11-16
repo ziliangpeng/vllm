@@ -264,14 +264,14 @@ class ReqMeta:
         load_spec: LoadSpec | None = None,
         discard_partial_chunks: bool = True,
         save_decode_cache: bool = False,
-    ) -> Optional["ReqMeta"]:
+    ) -> "ReqMeta" | None:
         """Create the request metadata from a request tracker.
 
         Args:
             tracker (RequestTracker): the request tracker.
             block_size (int): the block size in vLLM.
             lmcache_chunk_size (int): the chunk size for LMCache.
-            load_spec (Optional[LoadSpec]): the load spec for KV cache loading.
+            load_spec (LoadSpec | None): the load spec for KV cache loading.
             discard_partial_chunks (bool): whether to discard partial chunks.
             save_decode_cache (bool): whether to save the cache in decode phase.
 

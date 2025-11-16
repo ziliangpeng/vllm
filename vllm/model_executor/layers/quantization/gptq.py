@@ -4,7 +4,7 @@
 import enum
 from enum import Enum
 from fractions import Fraction
-from typing import TYPE_CHECKING, Any, Union
+from typing import TYPE_CHECKING, Any
 
 import torch
 from safetensors.torch import _TYPES as _SAFETENSORS_TO_TORCH_DTYPE
@@ -170,7 +170,7 @@ class GPTQConfig(QuantizationConfig):
 
     def get_quant_method(
         self, layer: torch.nn.Module, prefix: str
-    ) -> Union["GPTQLinearMethod", "QuantizeMethodBase"] | None:
+    ) -> "GPTQLinearMethod" | "QuantizeMethodBase" | None:
         if isinstance(layer, FusedMoE):
             # GPTQ MoE support: fall back to MoeWNA16 for broad compatibility
             from .moe_wna16 import MoeWNA16Config

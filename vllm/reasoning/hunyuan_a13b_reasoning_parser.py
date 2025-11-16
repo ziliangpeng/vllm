@@ -98,7 +98,7 @@ class HunyuanA13BReasoningParser(ReasoningParser):
             request (ChatCompletionRequest): Request being processed.
 
         Returns:
-            tuple[Optional[str], Optional[str]]: Tuple pair containing the
+            tuple[str | None, str | None]: Tuple pair containing the
             reasoning content and non-reasoning content.
         """
 

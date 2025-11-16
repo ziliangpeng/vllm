@@ -252,7 +252,7 @@ def register_config_parser(config_format: str):
          ... class CustomConfigParser(ConfigParserBase):
          ...     def parse(
          ...         self,
-         ...         model: Union[str, Path],
+         ...         model: str | Path,
          ...         trust_remote_code: bool,
          ...         revision: str | None = None,
          ...         code_revision: str | None = None,

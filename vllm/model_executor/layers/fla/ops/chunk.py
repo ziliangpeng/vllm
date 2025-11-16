@@ -134,19 +134,19 @@ def chunk_gated_delta_rule(
             (forget) gating tensor (in log space!) of shape `[B, T, H]` if `head_first=False` else `[B, H, T]`.
         beta (torch.Tensor):
             betas of shape `[B, T, H]` if `head_first=False` else `[B, H, T]`.
-        scale (Optional[int]):
+        scale (int | None):
             Scale factor for the RetNet attention scores.
             If not provided, it will default to `1 / sqrt(K)`. Default: `None`.
-        initial_state (Optional[torch.Tensor]):
+        initial_state (torch.Tensor | None):
             Initial state of shape `[N, H, K, V]` for `N` input sequences.
             For equal-length input sequences, `N` equals the batch size `B`.
             Default: `None`.
-        output_final_state (Optional[bool]):
+        output_final_state (bool | None):
             Whether to output the final state of shape `[N, H, K, V]`. Default: `False`.
         cu_seqlens (torch.LongTensor):
             Cumulative sequence lengths of shape `[N+1]` used for variable-length training,
             consistent with the FlashAttention API.
-        head_first (Optional[bool]):
+        head_first (bool | None):
             Whether the inputs are in the head-first format, which is not supported for variable-length inputs.
             Default: `False`.
 

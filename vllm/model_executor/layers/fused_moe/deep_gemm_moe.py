@@ -349,12 +349,12 @@ def deep_gemm_moe_fp8(
         MoE layer.
     - global_num_experts (int): The total number of experts in the global
         expert space.
-    - expert_map (Optional[torch.Tensor]):  A tensor mapping expert indices
+    - expert_map (torch.Tensor | None):  A tensor mapping expert indices
         from the global expert space to the local expert space of the expert
         parallel shard.
-    - a1_scale (Optional[torch.Tensor]): The optional fp32 scale to quantize a.
+    - a1_scale (torch.Tensor | None): The optional fp32 scale to quantize a.
         Shape: scalar or [M]
-    - a2_scale (Optional[torch.Tensor]): The optional fp32 scale to
+    - a2_scale (torch.Tensor | None): The optional fp32 scale to
         quantize the intermediate result between the gemms.
         Shape: scalar or [M]
 

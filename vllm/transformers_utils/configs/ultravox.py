@@ -19,9 +19,9 @@ class UltravoxConfig(transformers.PretrainedConfig):
     for more information.
 
     Args:
-        audio_config (`Union[AutoConfig, dict]`,  *optional*):
+        audio_config (`AutoConfig | dict`,  *optional*):
             Custom audio config or dict.
-        text_config (`Union[AutoConfig, dict]`, *optional*):
+        text_config (`AutoConfig | dict`, *optional*):
             The config object of the text backbone.
         audio_model_id (`str`, *optional*):
             The model ID of the audio backbone.

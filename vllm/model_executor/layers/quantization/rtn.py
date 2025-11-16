@@ -98,7 +98,7 @@ class RTNConfig(QuantizationConfig):
 
     def get_quant_method(
         self, layer: torch.nn.Module, prefix: str
-    ) -> Optional["QuantizeMethodBase"]:
+    ) -> "QuantizeMethodBase" | None:
         if isinstance(layer, LinearBase):
             return RTNLinearMethod(self)
         elif isinstance(layer, FusedMoE):

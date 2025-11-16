@@ -134,7 +134,7 @@ class IPEXConfig(QuantizationConfig):
 
     def get_quant_method(
         self, layer: torch.nn.Module, prefix: str
-    ) -> Optional["LinearMethodBase"]:
+    ) -> "LinearMethodBase" | None:
         if isinstance(layer, LinearBase):
             if self.method == "awq":
                 if is_layer_skipped(

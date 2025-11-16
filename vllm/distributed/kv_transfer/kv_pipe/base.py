@@ -33,7 +33,7 @@ class KVPipeBase(ABC):
         the pipe.
 
         Args:
-            tensor (Optional[torch.Tensor]): The tensor to be sent. Can be None.
+            tensor (torch.Tensor | None): The tensor to be sent. Can be None.
 
         Raises:
             NotImplementedError: This method must be implemented in subclasses.
@@ -45,7 +45,7 @@ class KVPipeBase(ABC):
         """Receive a tensor (can be None) from the pipeline.
 
         Returns:
-            Optional[torch.Tensor]: The tensor received from the pipeline. Can
+            torch.Tensor | None: The tensor received from the pipeline. Can
                                     be None.
 
         Raises:

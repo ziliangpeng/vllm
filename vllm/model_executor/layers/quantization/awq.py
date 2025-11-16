@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 
-from typing import TYPE_CHECKING, Any, Union
+from typing import TYPE_CHECKING, Any
 
 import torch
 from safetensors.torch import _TYPES as _SAFETENSORS_TO_TORCH_DTYPE
@@ -94,7 +94,7 @@ class AWQConfig(QuantizationConfig):
 
     def get_quant_method(
         self, layer: torch.nn.Module, prefix: str
-    ) -> Union["LinearMethodBase", "QuantizeMethodBase"] | None:
+    ) -> "LinearMethodBase" | "QuantizeMethodBase" | None:
         if isinstance(layer, LinearBase):
             if is_layer_skipped(
                 prefix,

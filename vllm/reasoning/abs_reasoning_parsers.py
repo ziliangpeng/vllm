@@ -95,7 +95,7 @@ class ReasoningParser:
             The request object that was used to generate the model_output.
 
         Returns:
-        tuple[Optional[str], Optional[str]]
+        tuple[str | None, str | None]
             A tuple containing the reasoning content and the content.
         """
 

@@ -44,7 +44,7 @@ def choose_scaled_mm_linear_kernel(
     Args:
         config (ScaledMMLinearLayerConfig): Description of the linear layer
             to be implemented.
-        compute_capability (Optional[int], optional): The compute capability of
+        compute_capability (int | None, optional): The compute capability of
             the target device, if None uses `current_platform` to get the
             compute capability. Defaults to None.
 

@@ -212,7 +212,7 @@ class PunicaWrapperGPU(PunicaWrapperBase):
             lora_b_stacked (tuple[torch.Tensor, ...]): lora_b's weight.
             scale (float): Scaling factor.
             output_slices (tuple[int, ...]): Every slice's size.
-            buffer (Optional[torch.Tensor]): Defaults to None.
+            buffer (torch.Tensor | None): Defaults to None.
         """
 
         assert len(lora_a_stacked) == len(lora_b_stacked) == len(output_slices)
@@ -269,7 +269,7 @@ class PunicaWrapperGPU(PunicaWrapperBase):
             lora_a_stacked (torch.Tensor): lora_a's weights.
             lora_b_stacked (torch.Tensor): lora_b's weights.
             scale (float): Scaling factor.
-            buffer (Optional[torch.Tensor]): Default to None.
+            buffer (torch.Tensor | None): Default to None.
         """
         y_org = y
         y = y.view(-1, y.shape[-1])

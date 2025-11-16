@@ -151,7 +151,7 @@ class Ernie45ReasoningParser(BaseThinkingReasoningParser):
         - 'abc' goes to reasoning
         - 'def' goes to content
         Returns:
-            tuple[Optional[str], Optional[str]]: reasoning content and content
+            tuple[str | None, str | None]: reasoning content and content
         """
         reasoning, content = super().extract_reasoning(model_output, request)
         if content:

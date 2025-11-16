@@ -239,7 +239,7 @@ class GPTQMarlinConfig(QuantizationConfig):
 
     def get_quant_method(
         self, layer: torch.nn.Module, prefix: str
-    ) -> Optional["QuantizeMethodBase"]:
+    ) -> "QuantizeMethodBase" | None:
         if isinstance(layer, FusedMoE):
             from vllm.model_executor.layers.quantization.moe_wna16 import MoeWNA16Config
 

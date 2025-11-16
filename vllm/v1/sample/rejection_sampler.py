@@ -68,7 +68,7 @@ class RejectionSampler(nn.Module):
         Args:
             metadata:
                 Metadata for spec decoding.
-            draft_probs (Optional[torch.Tensor]):
+            draft_probs (torch.Tensor | None):
                 Probability distribution for the draft tokens. Shape is
                 [num_tokens, vocab_size]. Can be None if probabilities are
                 not provided, which is the case for ngram spec decode.
@@ -532,7 +532,7 @@ def generate_uniform_probs(
             Total number of tokens.
         num_draft_tokens: List[List[int]]
             Number of draft tokens per request.
-        generators: Optional[Dict[int, torch.Generator]]
+        generators: Dict[int, torch.Generator] | None
             A dictionary mapping indices in the batch to
             `torch.Generator` objects.
         device: torch.device

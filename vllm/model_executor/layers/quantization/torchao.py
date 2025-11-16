@@ -223,7 +223,7 @@ class TorchAOConfig(QuantizationConfig):
 
     def get_quant_method(
         self, layer: torch.nn.Module, prefix: str
-    ) -> Optional["QuantizeMethodBase"]:
+    ) -> "QuantizeMethodBase" | None:
         if not isinstance(layer, LinearBase):
             return None
 

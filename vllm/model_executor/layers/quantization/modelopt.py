@@ -220,7 +220,7 @@ class ModelOptFp8Config(QuantizationConfig):
 
     def get_quant_method(
         self, layer: torch.nn.Module, prefix: str
-    ) -> Optional["QuantizeMethodBase"]:
+    ) -> "QuantizeMethodBase" | None:
         from vllm.attention.layer import (  # Avoid circular import
             Attention,
             MLAAttention,
@@ -890,7 +890,7 @@ class ModelOptNvFp4Config(QuantizationConfig):
 
     def get_quant_method(
         self, layer: torch.nn.Module, prefix: str
-    ) -> Optional["QuantizeMethodBase"]:
+    ) -> "QuantizeMethodBase" | None:
         from vllm.attention.layer import (  # Avoid circular import
             Attention,
             MLAAttention,

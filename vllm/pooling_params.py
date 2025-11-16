@@ -79,7 +79,7 @@ class PoolingParams(
         return deepcopy(self)
 
     def verify(
-        self, task: PoolingTask, model_config: Optional["ModelConfig"] = None
+        self, task: PoolingTask, model_config: "ModelConfig" | None = None
     ) -> None:
         if self.task is None:
             self.task = task
@@ -103,7 +103,7 @@ class PoolingParams(
         self._verify_valid_parameters()
 
     def _merge_default_parameters(
-        self, model_config: Optional["ModelConfig"] = None
+        self, model_config: "ModelConfig" | None = None
     ) -> None:
         if model_config is None:
             return
@@ -148,7 +148,7 @@ class PoolingParams(
                 if getattr(self, k, None) is None:
                     setattr(self, k, getattr(pooler_config, k))
 
-    def _set_default_parameters(self, model_config: Optional["ModelConfig"]):
+    def _set_default_parameters(self, model_config: "ModelConfig" | None):
         if self.task in ["embed", "token_embed"]:
             if self.normalize is None:
                 self.normalize = True

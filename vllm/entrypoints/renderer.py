@@ -146,7 +146,7 @@ class BaseRenderer(ABC):
                 (e.g., tokenization and length handling).
 
         Returns:
-            list[Union[EngineTokensPrompt, EngineEmbedsPrompt]]:
+            list[EngineTokensPrompt | EngineEmbedsPrompt]:
                 Engine-ready prompt objects.
 
         Raises:

@@ -130,7 +130,7 @@ class CompressedTensorsConfig(QuantizationConfig):
         self,
         layer: torch.nn.Module,
         prefix: str,
-    ) -> Optional["QuantizeMethodBase"]:
+    ) -> "QuantizeMethodBase" | None:
         from vllm.attention.layer import Attention  # Avoid circular import
 
         if isinstance(layer, LinearBase):
@@ -632,7 +632,7 @@ class CompressedTensorsConfig(QuantizationConfig):
 
     def get_scheme(
         self, layer: torch.nn.Module, layer_name: str | None = None
-    ) -> Optional["CompressedTensorsScheme"]:
+    ) -> "CompressedTensorsScheme" | None:
         """
         compressed-tensors supports non uniform in the following way:
 

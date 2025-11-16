@@ -61,7 +61,7 @@ class GraniteReasoningParser(ReasoningParser):
             request (ChatCompletionRequest): Request being processed.
 
         Returns:
-            tuple[Optional[str], Optional[str]]: Tuple pair containing the
+            tuple[str | None, str | None]: Tuple pair containing the
             reasoning content and non-reasoning content.
         """
         re_match = self.reasoning_regex.findall(model_output)
@@ -104,7 +104,7 @@ class GraniteReasoningParser(ReasoningParser):
             delta_token_ids (Sequence[int]): Token IDs of delta_text.
 
         Returns:
-            Union[DeltaMessage, None]
+            DeltaMessage | None
                 DeltaMessage with either reasoning content or content, or None.
         """
         reasoning, resp_seq_len, content = self._get_content_sections(current_text)
@@ -324,7 +324,7 @@ class GraniteReasoningParser(ReasoningParser):
             current_text (str): The full previous + delta text.
 
         Returns:
-            tuple[Optional[str], Optional[int], Optional[str]]: Tuple of len 3
+            tuple[str | None, int | None, str | None]: Tuple of len 3
             containing the reasoning content, the length of the response seq
             (if there is one) and the non-reasoning content.
         """

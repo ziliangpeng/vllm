@@ -607,17 +607,17 @@ class FusedMoEPermuteExpertsUnpermute(ABC):
           MoE layer.
         - global_num_experts (int): The total number of experts in the global
           expert space.
-        - expert_map (Optional[torch.Tensor]):  A tensor mapping expert indices
+        - expert_map (torch.Tensor | None):  A tensor mapping expert indices
           from the global expert space to the local expert space of the expert
           parallel shard.
-        - a1q_scale (Optional[torch.Tensor]): Optional quantized scale to be
+        - a1q_scale (torch.Tensor | None): Optional quantized scale to be
           used for a1.  Result of quantization from prepare/finalize and not
           from the FusedMoEQuantConfig.
         - workspace13 (torch.Tensor): A scratch tensor used for gemm outputs
           must be large enough to hold output of either MoE gemm.
         - workspace2 (torch.Tensor): A scratch tensor used for the activation
           function.
-        - expert_tokens_meta (Optional[ExpertTokensMetadata]) - An optional
+        - expert_tokens_meta (ExpertTokensMetadata | None) - An optional
           ExpertTokensMetadata object containing gpu/cpu tensors
           as big as the number of local experts with the information about the
           number of tokens assigned to each local expert.
@@ -1142,7 +1142,7 @@ class FusedMoEModularKernel(torch.nn.Module):
           MoE layer.
         - global_num_experts (int): The total number of experts in the global
           expert space.
-        - expert_map (Optional[torch.Tensor]):  A tensor mapping expert indices
+        - expert_map (torch.Tensor | None):  A tensor mapping expert indices
           from the global expert space to the local expert space of the expert
           parallel shard.
         - apply_router_weight_on_input (bool): When true, the topk weights are

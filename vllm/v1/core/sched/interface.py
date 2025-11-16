@@ -165,7 +165,7 @@ class SchedulerInterface(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def make_stats(self) -> Optional["SchedulerStats"]:
+    def make_stats(self) -> "SchedulerStats" | None:
         """Make a SchedulerStats object for logging.
 
         The SchedulerStats object is created for every scheduling step.
@@ -177,5 +177,5 @@ class SchedulerInterface(ABC):
         """Shutdown the scheduler."""
         raise NotImplementedError
 
-    def get_kv_connector(self) -> Optional["KVConnectorBase_V1"]:
+    def get_kv_connector(self) -> "KVConnectorBase_V1" | None:
         return None

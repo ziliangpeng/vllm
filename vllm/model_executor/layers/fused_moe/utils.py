@@ -70,7 +70,7 @@ def count_expert_num_tokens(
     - topk_ids (torch.Tensor): Tensor mapping each token to its
     list of experts.
     - num_local_experts (int): Number of experts in this rank.
-    - expert_map (Optional[torch.Tensor]):  A tensor mapping expert indices
+    - expert_map (torch.Tensor | None):  A tensor mapping expert indices
     from the global expert space to the local expert space of the expert
     parallel shard.
 

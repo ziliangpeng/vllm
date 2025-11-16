@@ -177,13 +177,13 @@ class TorchSDPAMetadata(AttentionMetadata):
         )
 
     @property
-    def prefill_metadata(self) -> Optional["TorchSDPAMetadata"]:
+    def prefill_metadata(self) -> "TorchSDPAMetadata" | None:
         if self.num_prefill_tokens == 0:
             return None
         return self
 
     @property
-    def decode_metadata(self) -> Optional["TorchSDPAMetadata"]:
+    def decode_metadata(self) -> "TorchSDPAMetadata" | None:
         if self.num_decode_tokens == 0:
             return None
         return self

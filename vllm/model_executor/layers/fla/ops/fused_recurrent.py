@@ -311,10 +311,10 @@ def fused_recurrent_gated_delta_rule(
             g (decays) of shape `[B, T, HV]`.
         beta (torch.Tensor):
             betas of shape `[B, T, HV]`.
-        scale (Optional[int]):
+        scale (int | None):
             Scale factor for the RetNet attention scores.
             If not provided, it will default to `1 / sqrt(K)`. Default: `None`.
-        initial_state (Optional[torch.Tensor]):
+        initial_state (torch.Tensor | None):
             Initial state of shape `[N, HV, K, V]` for `N` input sequences.
             For equal-length input sequences, `N` equals the batch size `B`.
             Default: `None`.
@@ -324,9 +324,9 @@ def fused_recurrent_gated_delta_rule(
         cu_seqlens (torch.LongTensor):
             Cumulative sequence lengths of shape `[N+1]` used for variable-length training,
             consistent with the FlashAttention API.
-        ssm_state_indices (Optional[torch.Tensor]):
+        ssm_state_indices (torch.Tensor | None):
             Indices to map the input sequences to the initial/final states.
-        num_accepted_tokens (Optional[torch.Tensor]):
+        num_accepted_tokens (torch.Tensor | None):
             Number of accepted tokens for each sequence during decoding.
 
     Returns:

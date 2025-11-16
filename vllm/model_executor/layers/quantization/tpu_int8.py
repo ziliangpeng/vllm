@@ -50,7 +50,7 @@ class Int8TpuConfig(QuantizationConfig):
 
     def get_quant_method(
         self, layer: Module, prefix: str
-    ) -> Optional["TPUInt8LinearMethod"]:
+    ) -> "TPUInt8LinearMethod" | None:
         if isinstance(layer, LinearBase):
             return TPUInt8LinearMethod(self)
         return None

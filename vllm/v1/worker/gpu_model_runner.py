@@ -1476,7 +1476,7 @@ class GPUModelRunner(LoRAModelRunnerMixin, KVConnectorModelRunnerMixin):
         num_common_prefix_blocks: list[int],
     ) -> list[list[int]] | None:
         """
-        :return: Optional[cascade_attn_prefix_lens]
+        :return: cascade_attn_prefix_lens | None
             cascade_attn_prefix_lens is 2D: ``[kv_cache_group_id][attn_group_idx]``,
             None if we should not use cascade attention
         """

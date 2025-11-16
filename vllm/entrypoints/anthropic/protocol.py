@@ -135,7 +135,7 @@ class AnthropicStreamEvent(BaseModel):
         "ping",
         "error",
     ]
-    message: Optional["AnthropicMessagesResponse"] = None
+    message: "AnthropicMessagesResponse" | None = None
     delta: AnthropicDelta | None = None
     content_block: AnthropicContentBlock | None = None
     index: int | None = None

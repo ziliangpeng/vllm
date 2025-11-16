@@ -113,7 +113,7 @@ def support_torch_compile(
     ```python
     @support_torch_compile
     class MyModel(nn.Module):
-        def forward(self, x: torch.Tensor, y: Optional[torch.Tensor]): ...
+        def forward(self, x: torch.Tensor, y: torch.Tensor | None): ...
     ```
 
     Usage 2: use as a decorator with arguments:
@@ -121,7 +121,7 @@ def support_torch_compile(
     ```python
     @support_torch_compile(dynamic_arg_dims={"x": 0, "y": 0})
     class MyModel(nn.Module):
-        def forward(self, x: torch.Tensor, y: Optional[torch.Tensor]): ...
+        def forward(self, x: torch.Tensor, y: torch.Tensor | None): ...
     ```
 
     `dynamic_arg_dims` is a dictionary that maps argument names to the dynamic
@@ -132,7 +132,7 @@ def support_torch_compile(
     of the `forward` method, based on the following default rules:
 
     - if the argument is annotated as `torch.Tensor` or
-        `Optional[torch.Tensor]`, the first dimension will be
+        `torch.Tensor | None`, the first dimension will be
         marked as dynamic.
     - if the argument is annotated as `IntermediateTensors`, the first
         dimension of all the tensors in the intermediate tensors

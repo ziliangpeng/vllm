@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 """
 This module implements a PyNccl pipe for sending and receiving
-Optional[torch.Tensor] between distributed ranks with advanced
+torch.Tensor | None between distributed ranks with advanced
 communication features.
 
 Key Features:

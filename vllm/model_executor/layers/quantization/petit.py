@@ -158,7 +158,7 @@ class PetitNvFp4Config(QuantizationConfig):
 
     def get_quant_method(
         self, layer: torch.nn.Module, prefix: str
-    ) -> Optional["QuantizeMethodBase"]:
+    ) -> "QuantizeMethodBase" | None:
         from vllm.attention.layer import Attention  # Avoid circular import
 
         exclude = self.require_exclude_modules()

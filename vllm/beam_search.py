@@ -27,7 +27,7 @@ class BeamSearchSequence:
     text: str | None = None
     finish_reason: str | None = None
     stop_reason: int | str | None = None
-    multi_modal_data: Optional["MultiModalDataDict"] = None
+    multi_modal_data: "MultiModalDataDict" | None = None
     mm_processor_kwargs: dict[str, Any] | None = None
 
 

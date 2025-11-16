@@ -488,15 +488,15 @@ def cutlass_moe_fp8(
         Shape: [num_experts]
     - c_strides2 (torch.Tensor): The output strides for the second gemm.
         Shape: [num_experts]
-    - per_act_token (Optional[bool]): Whether the scale is per-token or
+    - per_act_token (bool | None): Whether the scale is per-token or
                                       per-tensor.
     - activation (str): The activation function to use.
-    - a1_scale (Optional[torch.Tensor]): The optional fp32 scale to quantize a.
+    - a1_scale (torch.Tensor | None): The optional fp32 scale to quantize a.
         Shape: scalar or [M]
-    - a2_scale (Optional[torch.Tensor]): The optional fp32 scale to
+    - a2_scale (torch.Tensor | None): The optional fp32 scale to
         quantize the intermediate result between the gemms.
         Shape: scalar or [M]
-    - expert_map (Optional[torch.Tensor]): In the case of Expert parallel,
+    - expert_map (torch.Tensor | None): In the case of Expert parallel,
         every Rank is responsible for a subset of experts. expert_map is a
         mapping from global expert-id to local expert-id. When expert_map[i]
         is -1, it means that this Rank is not responsible for global

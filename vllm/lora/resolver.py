@@ -34,7 +34,7 @@ class LoRAResolver(ABC):
             lora_name: The name/identifier of the LoRA model to resolve.
 
         Returns:
-            Optional[LoRARequest]: The resolved LoRA model information, or None
+            LoRARequest | None: The resolved LoRA model information, or None
             if the LoRA model cannot be found.
         """
         pass

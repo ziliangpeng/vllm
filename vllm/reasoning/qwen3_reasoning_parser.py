@@ -41,7 +41,7 @@ class Qwen3ReasoningParser(BaseThinkingReasoningParser):
         - 'xyz' goes to content
 
         Returns:
-            tuple[Optional[str], Optional[str]]: reasoning content and content
+            tuple[str | None, str | None]: reasoning content and content
         """
 
         # Check if the model output contains both <think> and </think> tokens.

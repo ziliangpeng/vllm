@@ -1,7 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 import threading
-from typing import Optional
 
 import torch
 
@@ -10,7 +9,7 @@ from vllm.forward_context import ForwardContext
 from vllm.utils.torch_utils import current_stream
 
 _THREAD_ID_TO_CONTEXT: dict = {}
-_CURRENT_CONTEXTS: list[Optional["UBatchContext"]] = [None, None]
+_CURRENT_CONTEXTS: list["UBatchContext" | None] = [None, None]
 
 
 class UBatchContext:

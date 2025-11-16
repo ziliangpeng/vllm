@@ -116,7 +116,7 @@ class KVLookupBufferBase(KVCacheBufferBase):
             roi (torch.Tensor): A binary mask on top of the input tokens
 
         Returns:
-            list[Optional[torch.Tensor]]: A list of tensors. Can be None.
+            list[torch.Tensor | None]: A list of tensors. Can be None.
 
         Raises:
             NotImplementedError: This method must be implemented in subclasses.
@@ -151,7 +151,7 @@ class KVStoreBufferBase(KVCacheBufferBase):
                 key cache tensor, value cache tensor, or hidden state tensor
                 generated during model forwarding.
 
-            value (Optional[torch.Tensor]): Tensor to be stored.
+            value (torch.Tensor | None): Tensor to be stored.
 
         Raises:
             NotImplementedError: This method must be implemented in subclasses.
@@ -171,7 +171,7 @@ class KVStoreBufferBase(KVCacheBufferBase):
                 generated during model forwarding.
 
         Returns:
-            Optional[torch.Tensor]: Stored tensor if exists, None otherwise.
+            torch.Tensor | None: Stored tensor if exists, None otherwise.
 
         Raises:
             NotImplementedError: This method must be implemented in subclasses.

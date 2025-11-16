@@ -6,7 +6,7 @@ import json
 import logging
 from abc import ABC, abstractmethod
 from contextlib import AsyncExitStack
-from typing import TYPE_CHECKING, Union
+from typing import TYPE_CHECKING
 
 from openai.types.responses.tool import Mcp
 from openai_harmony import Author, Message, Role, StreamState, TextContent
@@ -356,7 +356,7 @@ class HarmonyContext(ConversationContext):
         return render_for_completion(self.messages)
 
     async def call_search_tool(
-        self, tool_session: Union["ClientSession", Tool], last_msg: Message
+        self, tool_session: "ClientSession" | Tool, last_msg: Message
     ) -> list[Message]:
         self.called_tools.add("browser")
         if isinstance(tool_session, Tool):
@@ -383,7 +383,7 @@ class HarmonyContext(ConversationContext):
         ]
 
     async def call_python_tool(
-        self, tool_session: Union["ClientSession", Tool], last_msg: Message
+        self, tool_session: "ClientSession" | Tool, last_msg: Message
     ) -> list[Message]:
         self.called_tools.add("python")
         if isinstance(tool_session, Tool):
@@ -427,7 +427,7 @@ class HarmonyContext(ConversationContext):
                     exit_stack.push_async_exit(self.cleanup_session)
 
     async def call_container_tool(
-        self, tool_session: Union["ClientSession", Tool], last_msg: Message
+        self, tool_session: "ClientSession" | Tool, last_msg: Message
     ) -> list[Message]:
         """
         Call container tool. Expect this to be run in a stateful docker

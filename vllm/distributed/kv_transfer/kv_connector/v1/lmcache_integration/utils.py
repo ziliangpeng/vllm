@@ -3,7 +3,7 @@
 # Standard
 import os
 import threading
-from typing import TYPE_CHECKING, Union
+from typing import TYPE_CHECKING
 
 import torch
 from lmcache.config import LMCacheEngineConfig as Config
@@ -177,7 +177,7 @@ def create_lmcache_metadata(
 
 
 def extract_mm_features(
-    request: Union["Request", "NewRequestData"], modify: bool = False
+    request: "Request" | "NewRequestData", modify: bool = False
 ) -> tuple[list[str], list["PlaceholderRange"]]:
     """
     Normalize multimodal information from a Request into parallel lists.

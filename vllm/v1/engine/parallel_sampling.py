@@ -119,7 +119,7 @@ class ParentRequest:
 
     @staticmethod
     def observe_finished_request(
-        parent_req: Optional["ParentRequest"],
+        parent_req: "ParentRequest" | None,
         iteration_stats: IterationStats,
         num_generation_tokens: int,
     ):

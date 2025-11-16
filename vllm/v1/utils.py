@@ -222,9 +222,9 @@ class APIServerProcessManager:
 
 def wait_for_completion_or_failure(
     api_server_manager: APIServerProcessManager,
-    engine_manager: Union["CoreEngineProcManager", "CoreEngineActorManager"]
+    engine_manager: "CoreEngineProcManager" | "CoreEngineActorManager"
     | None = None,
-    coordinator: Optional["DPCoordinator"] = None,
+    coordinator: "DPCoordinator" | None = None,
 ) -> None:
     """Wait for all processes to complete or detect if any fail.
 
